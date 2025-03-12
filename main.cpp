@@ -2,7 +2,7 @@
 
 int main(int arg, char* argv[]){	
 	// get file name 
-	if(arg != 3){
+	if(arg < 2){
 		printf("Input Two Files Only");
 		return 0;
 	}
@@ -34,12 +34,14 @@ int main(int arg, char* argv[]){
 		return 0;
 	}
 	
-	fread(&n1, sizeof(uint32_t), 1, fp1);
+	fread(&n1, sizeof(uint32_t), 1, fp1); // (포인터, 읽어올 아이템 크기(1로 해주는게 좋음), n번 읽어옴, 읽어온 아이템 수) 
 	fread(&n2, sizeof(uint32_t), 1, fp2);
 	
 	n1 = ntohl(n1);
 	n2 = ntohl(n2);
-	
+
+	//원래는 return 할 때마다 fclose()해줘야 함. 
+	//construct, destruct 사용하면 복잡함 해결 
 	fclose(fp1);
 	fclose(fp2);	
 	
