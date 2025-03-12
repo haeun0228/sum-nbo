@@ -4,6 +4,9 @@ int main(int arg, char* argv[]){
 	// get file name 
 	if(arg < 2){
 		printf("Input Two Files Only");
+		//syntax : sum-nbo <file1> [<file2>...]
+		//sample : sum-nbo a.bin b.bin
+
 		return 0;
 	}
 	
